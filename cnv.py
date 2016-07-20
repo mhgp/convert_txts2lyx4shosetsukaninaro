@@ -175,7 +175,7 @@ def write_text(wf, line, bl_count):
 def txt2lyx(wf, path):
     line_num = 0
     with codecs.open(path, 'r', encoding='utf-8') as f:
-        lines = f.read().split('\n')
+        lines = re.split('\r\n|\r|\n', f.read())
         preface_end_line = 0
         for i,line in enumerate(lines):
             if line == "********************************************":
